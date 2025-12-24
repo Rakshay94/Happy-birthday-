@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Shubi 💞</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Georgia', serif;
+            overflow-x: hidden;
+            cursor: crosshair;
+        }
+
+        /* Animated Stars Background */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .shubi-name {
+            font-size: clamp(3rem, 10vw, 5rem);
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff1493, #ff69b4, #ffd700, #ff6ec7);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease infinite, float 3s ease-in-out infinite;
+        }
+
+        .lovely-message {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin-top: 20px;
+            color: #ffe0f0;
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+            font-style: italic;
+        }
+
+        /* Photo Gallery */
+        .gallery-container {
+            padding: 100px 20px;
+            background: rgba(10, 0, 5, 0.8);
+            position: relative;
+            z-index: 10;
+        }
+
+        .gallery-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #ffd700;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .polaroid {
+            background: #fff;
+            padding: 15px 15px 50px 15px;
+            box-shadow: 0 15px 40px rgba(255, 20, 147, 0.4);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border: 1px solid #eee;
+        }
+
+        .polaroid:nth-child(1) { transform: rotate(-3deg); }
+        .polaroid:nth-child(2) { transform: rotate(2deg); }
+        .polaroid:nth-child(3) { transform: rotate(-2deg); }
+        .polaroid:nth-child(4) { transform: rotate(3deg); }
+
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.08);
+            z-index: 20;
+            box-shadow: 0 25px 60px rgba(255, 20, 147, 0.7);
+        }
+
+        /* Music Toggle */
+        .music-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #ff1493;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 0 20px #ff1493;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Animations */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="music-btn" id="playBtn">🎵</button>
+    <audio id="bdaySong" loop>
+        <source src="birthday_song.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="stars-container" id="starContainer"></div>
+
+    <div class="page-wrapper">
+        <section class="hero">
+            <div class="shubi-name">Happy Birthday Shubi!</div>
+            <div style="color: #ff69b4; font-size: 1.2rem; margin-top: 5px;">Shivangi Tripathi 💞</div>
+            
+            <div class="lovely-message">
+                "To my favorite human, Shubi—on your special day, I want you to know how truly wonderful you are. 🌸 <br><br>
+                May your year be filled with as much laughter as we share, as much sweetness as your smile, and all the success your heart can hold. You aren't just a bestie; you're a blessing. 🍀<br><br>
+                May God shower you with endless happiness today and forever. Stay awesome, stay pretty, and stay exactly who you are! ✨"
+            </div>
+        </section>
+
+        <section class="gallery-container">
+            <h2 class="gallery-title">Captured Moments 📸</h2>
+            <div class="photo-grid">
+                <div class="polaroid"><img src="photo1.jpg" alt="Memory 1"></div>
+                <div class="polaroid"><img src="photo2.jpg" alt="Memory 2"></div>
+                <div class="polaroid"><img src="photo3.jpg" alt="Memory 3"></div>
+                <div class="polaroid"><img src="photo4.jpg" alt="Memory 4"></div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Generate Starry Background
+        const stars = document.getElementById('starContainer');
+        for (let i = 0; i < 150; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = Math.random() * 3 + 'px';
+            star.style.height = star.style.width;
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.animationDelay = Math.random() * 5 + 's';
+            stars.appendChild(star);
+        }
+
+        // Music Logic
+        const audio = document.getElementById('bdaySong');
+        const btn = document.getElementById('playBtn');
+        btn.onclick = () => {
+            if (audio.paused) {
+                audio.play();
+                btn.innerText = '⏸️';
+            } else {
+                audio.pause();
+                btn.innerText = '🎵';
+            }
+        };
+
+        // Heart Explosion on Click
+        document.addEventListener('click', (e) => {
+            for(let i=0; i<6; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '💖';
+                heart.style.position = 'fixed';
+                heart.style.left = e.clientX + 'px';
+                heart.style.top = e.clientY + 'px';
+                heart.style.fontSize = '20px';
+                heart.style.pointerEvents = 'none';
+                heart.animate([
+                    { transform: 'translate(0,0) scale(1)', opacity: 1 },
+                    { transform: `translate(${(Math.random()-0.5)*150}px, ${(Math.random()-0.5)*150}px) scale(0)`, opacity: 0 }
+                ], { duration: 1000, easing: 'ease-out' });
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 1000);
+            }
+        });
+    </script>
+</body>
+</html>
